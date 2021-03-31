@@ -38,3 +38,8 @@ RUN set -eux && \
         rm -rf /tmp/pear && \
         docker-php-ext-enable redis && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY --chown=www:www ./entrypoints/entrypoint.sh /etc/etntrypoint.sh
+RUN chmod +x /etc/etntrypoint.sh
+
+USER www:www
